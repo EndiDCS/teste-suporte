@@ -1,4 +1,4 @@
-#Teste básico Allgoo 
+**Teste básico Allgoo** 
 
 **Frameworks utilizados :**
 
@@ -6,7 +6,7 @@ Django: Foi escolhido pois é o framework python que mais tenho domínio no mome
 
 Bootstrap : Foi escolhido pois facilita a criação de sites responsivos de forma fácil e intuitiva.
 
-#Instruções de Uso utilizando Linux:
+**Instruções de Uso utilizando Linux:**
 
 Abra o terminal e vá para a pasta do projeto
 
