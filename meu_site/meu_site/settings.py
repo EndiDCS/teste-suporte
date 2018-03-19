@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '#0x%r@4sn772&tp%x@kurt_g=_j=aw&avvazo#3&hx^9s^9jk*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testeallgoo.herokuapp.com/']
 
 
 # Application definition
@@ -94,13 +95,9 @@ WSGI_APPLICATION = 'meu_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -148,12 +145,16 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 SOCIAL_AUTH_TWITTER_KEY ="0Y5f1HntCqY33eTafPBixloE2"
 SOCIAL_AUTH_TWITTER_SECRET= "165ULQpn2jrd3jiy1Z2cOCwFbzFbtgVze18RkVtOm9mfYHv8i7"
 
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='442130962190-q6jboacm7ahsbf6ob9g58u84mp15u7lc.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'w5vw9_o5gP6zjWti_9zWv0cz'
+
+
 
 
 
