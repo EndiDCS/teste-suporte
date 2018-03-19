@@ -1,0 +1,5 @@
+*.idea
+*.vscode
+*.kdev4
+*.sqlite3
+

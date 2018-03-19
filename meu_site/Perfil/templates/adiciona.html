@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}
+    Adicione Informações
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'adiciona'  %}" method="POST">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary"> Adicionar </a>
+    </form>
+{% endblock %}

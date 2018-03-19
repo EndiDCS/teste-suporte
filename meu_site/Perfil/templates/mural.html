@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load define_action %}
+{% block title %}
+    Mural
+{% endblock %}
+
+{% block body %}
+<br>
+    {% for u in users %}
+        
+            {% for i in informations %}
+                {% if i.user.id == u.id %}
+                    
+                    <div class="card">
+                        <div class="card-header">
+                          <h4> Usuário: {{u.username}} </h4> 
+                        </div>
+                        <div class="card-body">
+                            {{ i.information}}
+                            <br>
+                            <br>
+
+                            <form method="POST" action="{% url 'votos' u.id i.id %}">
+                                {% csrf_token %}
+                                <button type="submit" name="True" class="btn btn-primary"> Verdade </button>
+                                <button type="submit" name="False" class="btn btn-danger"> Mentira </button>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+
+                    
+                                        
+                {% endif %}
+            {% endfor %}   
+    {% endfor %}
+    
+    
+{% endblock %}

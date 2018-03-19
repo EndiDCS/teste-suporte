@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %} 
+{% load bootstrap %}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block title %}
+            Página de Login
+{% endblock %}
+
+{% block body %}
+
+    
+    
+ 
+        <h1 class="display-4">  Login </h1>
+            <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap}}
+            <button type="submit" class="btn btn-primary"> Login </button><br>
+            <a href="{% url 'social:begin' 'twitter' %}"> Login via Twitter</a> <br>
+            <a href="{% url 'social:begin' 'twitter' %}"> Login via Google</a> <br>
+
+        </form>
+    
+    
+{% endblock %}
+
+

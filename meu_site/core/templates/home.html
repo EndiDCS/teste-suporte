@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+     Página Inicial 
+{% endblock %}
+
+{% block body %}
+
+
+    {% if user.is_authenticated %}
+         <br>
+         <h1> <p align="center" >Seja Bem Vindo  {{user.username }} </p> </h1>
+         <br>
+         
+         <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><p align="center">Adicione Informações </p></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><p align="center">Verdadeiras ou Falsas </p></h6>
+                        <p align="justify">Este site permite que você adicione informações sejam verdadeiras ou falsas e os outros usuários irão votar dizendo se acreditam ou não nessa infomração. está pronto para começar? então <a href="{% url 'adiciona' %}"> Adicione Agora. </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><p align="center">Vote nas informações dos outros </p></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><p align="center">acerte para ganhar pontos </p></h6>
+                        <p align="justify">Este site permite que você vote em informações sejam verdadeiras ou falsas de outros usuários, quanto mais você acerta mais pontos você ganha, mas cuidado ao errar você tambem perde pontos. <a href="{% url 'mural' %}"> Vote Agora. </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><p align="center">Veja sua pontuação </p></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><p align="center">ranking </p></h6>
+                        <p align="justify">Acesse o ranking para ver o número de pontos que você fez e comparar com a pontuação de outros usuários <a href="{% url 'mural' %}"> Veja Agora. </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+            
+
+         
+    {% else %}
+
+    
+    
+     <h1> <p align="center" >Seja Bem Vindo </p></h1>
+     
+          <p> Não é cadastrado? <br>
+          <a href="{% url 'social:begin' 'twitter' %}"> Cadastre-se via Twitter</a> <br>
+          <a href="{% url 'social:begin' 'google-oauth2' %}"> Cadastre-se via Google</a> <br>
+          <a href="{% url 'cadastro' %}"> Cadastre-se Manualmente</a><br>
+          Já esta cadastrado? <a href="{% url 'login' %}"> Faça seu Login </a>
+     
+    {% endif %} 
+    
+
+    
+     
+     </p>
+     
+     
+     
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Perfil
+    
+{% endblock %}
+
+
+{% block body %}
+<h3> Ranking: </h3>
+    
+        <div class="row">
+            <div class="col-sm">
+                <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Usuário:
+                  <span class="badge badge-primary badge-pill">Pontuação:</span>
+                    
+                </li>
+                {% for p in perfil %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {% if user.profile != p %}
+                                {{ p.user.username}}
+                            {% else %}
+                                <b>  {{ p.user.username}} </b>
+                            {% endif %}    
+                            <span class="badge badge-primary badge-pill">{{ p.points|floatformat:2}}</span>
+                            
+                        </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+     
+            </div>
+        </div>
+
+{% endblock %}
