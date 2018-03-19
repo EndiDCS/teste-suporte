@@ -4,7 +4,8 @@
 
 Django: Foi escolhido pois é o framework python que mais tenho domínio no momento.
 
-Bootstrap : Foi escolhido pois facilita a criação do front-end de forma responsiva. 
+Bootstrap : Foi escolhido pois facilita a criação do front-end de forma responsiva.
+ 
 **Instruções de Uso utilizando Linux:**
 
 Abra o terminal e vá para a pasta do projeto
